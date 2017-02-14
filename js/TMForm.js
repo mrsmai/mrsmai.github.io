@@ -1,7 +1,15 @@
 
+$.ajaxPrefilter( function (options) {
+	if (options.crossDomain && jQuery.support.cors) {
+		var http = (window.location.protocol === 'http:' ? 'http:' : 'https:');
+		options.url = http + '//cors-anywhere.herokuapp.com/' + options.url;
+		console.log(options.url)
+	}
+});
+
 $(window).load(function(){$('#contact-form').TMForm({recaptchaPublicKey:'6LeZwukSAAAAAG8HbIAE0XeNvCon_cXThgu9afkj'})});(function($){$.fn.TMForm=function(opt){return this.each(TMForm)
 function TMForm(){var form=$(this)
-opt=$.extend({okClass:'ok',emptyClass:'empty',invalidClass:'invalid',successClass:'success',responseErrorClass:'response-error',responseMessageClass:'response-message',processingClass:'processing',onceVerifiedClass:'once-verified',mailHandlerURL:'bat/MailHandler.php',successShowDelay:'4000',stripHTML:true,recaptchaPublicKey:'',capchaTheme:'clean'},opt)
+opt=$.extend({okClass:'ok',emptyClass:'empty',invalidClass:'invalid',successClass:'success',responseErrorClass:'response-error',responseMessageClass:'response-message',processingClass:'processing',onceVerifiedClass:'once-verified',mailHandlerURL:nuiFormUrl,successShowDelay:'4000',stripHTML:true,recaptchaPublicKey:'',capchaTheme:'clean'},opt)
 init()
 function init(){form.on('submit',formSubmit).on('reset',formReset).on('focus','[data-constraints]',function(){$(this).parents('label').removeClass(opt.emptyClass)}).on('blur','[data-constraints]:not(.once-verified)',function(){$(this).addClass(opt.onceVerifiedClass).trigger('validate.form')}).on('keyup','[data-constraints].once-verified',function(){$(this).trigger('validate.form')}).on('keydown','input',function(e){var $this=$(this),next=$this.parents('label').next('label').find('input,textarea')
 if(e.keyCode===13)
@@ -49,8 +57,9 @@ $this.ajaxSubmit(function(e,d,a,c){responseMessage=e
 if(e=='success'){form.removeClass(opt.processingClass).addClass(opt.successClass)
 modal.find('.modal-title').text('Success!')
 modal.find('.modal-body').text('Your message has been successfully sent!')
-setTimeout(function(){form.removeClass(opt.successClass).trigger('reset')},opt.successShowDelay)}else{modal.find('.modal-title').text('Error!')
-modal.find('.modal-body').html(e)
+setTimeout(function(){form.removeClass(opt.successClass).trigger('reset')},opt.successShowDelay)}else{
+//modal.find('.modal-title').text('Thành công!')
+//modal.find('.modal-body').html('')
 form.removeClass(opt.processingClass).addClass(opt.responseErrorClass)
 $('#recaptcha_response_field',form).val('')
 setTimeout(function(){form.removeClass(opt.responseErrorClass)},opt.successShowDelay)}

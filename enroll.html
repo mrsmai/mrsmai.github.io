@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/jquery.fancybox.css" />
     <link rel="stylesheet" href="css/grid.css">
     <link rel="stylesheet" href="css/style.css">
+    <script>nuiFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSeF9k4NxD8SGPXfdJfT50O2gGwncYaAzQc0r4ibkKViltIEwg/formResponse"</script>
     <script src="js/jquery.js"></script>
     <script src="js/jquery-migrate-1.2.1.js"></script>
 	<meta property="og:image" content="/images/logo.png" />
@@ -57,17 +58,17 @@ window.location.protocol = "https";</script>
                     <div class="container">
                         <nav class="nav">
                             <ul class="sf-menu" data-type="navbar">
+                                <li>
+                                    <a href="index.html">Giới thiệu</a>
+                                </li>
+                                <li>
+                                    <a href="schedule.html">Lịch học</a>
+                                </li>
                                 <li class="active">
-                                    <a href="#">Giới thiệu</a>
+                                    <a href="enroll.html">Đăng ký học</a>
                                 </li>
                                 <li>
-                                    <a href="index-2.html">Lịch học</a>
-                                </li>
-                                <li>
-                                    <a href="index-3.html">Đăng ký học</a>
-                                </li>
-                                <li>
-                                    <a href="index-4.html">Liên hệ</a>
+                                    <a href="contact.html">Liên hệ</a>
                                 </li>
                             </ul>
                         </nav>
@@ -79,41 +80,48 @@ window.location.protocol = "https";</script>
         <main>
 			<section class="well-3 well-3__off2">
 				<div class="container">
-					<h4 class="wow fadeInUp" data-wow-delay="0.2s"><span class="paint-7">contact</span> <span class="paint-2">form</span></h4>
+					<h4 class="wow fadeInUp" data-wow-delay="0.2s"><span class="paint-7">đăng</span> <span class="paint-2">ký</span> <span class="paint-5">học</span></h4>
 					<form id="contact-form" class='contact-form'>
 						<div class="contact-form-loader"></div>
 						<fieldset>
 							<div class="row">
-								<div class="grid_4">
-									<label class="name">
-										<input type="text" name="name" placeholder="Name:" value="" data-constraints="@Required @JustLetters" />
-										<span class="empty-message">*This field is required.</span>
-										<span class="error-message">*This is not a valid name.</span>
+								<div class="grid_6">
+									<label class="entry.1724404412">
+										<input type="text" name="entry.1724404412" placeholder="Tên phụ huynh:" value="" data-constraints="@Required" />
+										<span class="empty-message">*Phần này là bắt buộc.</span>
+										<span class="error-message"></span>
 									</label>
 								</div>
-								<div class="grid_4">
-									<label class="email">
-										<input type="text" name="email" placeholder="Email:" value="" data-constraints="@Required @Email" />
-										<span class="empty-message">*This field is required.</span>
-										<span class="error-message">*This is not a valid email.</span>
+								<div class="grid_6">
+									<label class="entry.1404281947">
+										<input type="text" name="entry.1404281947" placeholder="Số điện thoại:" value="" data-constraints="@Required" />
+										<span class="empty-message">*Phần này là bắt buộc.</span>
+										<span class="error-message"></span>
 									</label>
 								</div>
-								<div class="grid_4">
-									<label class="phone">
-										<input type="text" name="phone" placeholder="Phone:" value="" data-constraints="@JustNumbers" />
-										<span class="empty-message">*This field is required.</span>
-										<span class="error-message">*This is not a valid phone.</span>
+								<div class="grid_6">
+									<label class="entry.1016133781">
+										<input type="text" name="entry.1016133781" placeholder="Tên học sinh:" value="" data-constraints="@Required" />
+										<span class="empty-message">*Phần này là bắt buộc.</span>
+										<span class="error-message"></span>
+									</label>
+								</div>
+								<div class="grid_6">
+									<label class="entry.953172324">
+										<input type="text" name="entry.953172324" placeholder="Trường, lớp:" value="" data-constraints="@Required" />
+										<span class="empty-message">*Phần này là bắt buộc.</span>
+										<span class="error-message"></span>
 									</label>
 								</div>
 							</div>
-							<label class="message">
-								<textarea name="message" placeholder="Message:" data-constraints='@Required @Length(min=20,max=999999)'></textarea>
-								<span class="empty-message">*This field is required.</span>
+							<label class="entry.1576031">
+								<textarea name="entry.1576031" placeholder="Ca học mong muốn (có thể chọn nhiều ca)" data-constraints="@Required" style="height: 100px"></textarea>
+								<span class="empty-message">*Phần này là bắt buộc.</span>
 								<span class="error-message">*The message is too short.</span>
 							</label>
 							<div class="btn-wr">
-								<a class="btn-small btn-skin-2" href="#" data-type="reset">Clear</a>
-								<a class="btn-small btn-skin-3" href="#" data-type="submit">Send</a>
+								<!--a class="btn-small btn-skin-2" href="#" data-type="reset">Clear</a-->
+								<a class="btn-small btn-skin-3" href="#" data-type="submit">Đăng ký</a>
 							</div>
 						</fieldset>
 						<div class="modal fade response-message">
@@ -123,10 +131,10 @@ window.location.protocol = "https";</script>
 										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
 											&times;
 										</button>
-										<h4 class="modal-title">Modal title</h4>
+										<h6 style="color:black" class="modal-title">Thành công!</h6>
 									</div>
 									<div class="modal-body">
-										You message has been sent! We will be in touch soon.
+										Cảm ơn bạn! Chúng tôi sẽ liên hệ lại cho bạn sớm nhất có thể.
 									</div>
 								</div>
 							</div>
