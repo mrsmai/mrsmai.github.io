@@ -1,0 +1,6 @@
+title: Mrs. Mai's English Class
+url: "http://mrsmai.github.io"
+relative_permalinks: false
+permalink: /404.html
+markdown: kramdown
+highlighter: rouge
