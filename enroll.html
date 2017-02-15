@@ -25,6 +25,22 @@
     <script src="js/html5shiv.js"></script>
     <![endif]-->
     <script src='js/device.min.js'></script>
+	<style>
+	.prefill_course {
+		-moz-box-sizing:border-box;
+		-webkit-box-sizing:border-box;
+		box-sizing:border-box;position:relative;
+		display:block;letter-spacing:normal;
+		margin:0 0 20px;width:100%;
+		-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;font:400 16px "Nunito",sans-serif;line-height:24px;
+		padding:10px 20px 10px 15px;color:#888;
+		background-color:#fff;width:100%;border-radius:0;height:44px;margin:0;
+	}
+	.btn-enroll{
+		display:inline-block;font:600 1em "Nunito",sans-serif;color:#fff;padding:5px 5px 5px;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;-moz-transition:0.3s;-o-transition:0.3s;-webkit-transition:0.3s;transition:0.3s;
+		margin-top: 4px;
+	}
+	</style>
 </head>
 
 <body>
@@ -115,12 +131,14 @@ window.location.protocol = "https";</script>
 									</label>
 								</div>
 							</div>
+							<span class="prefill_course" id="my_course_show"></span>
 							<label class="entry.1576031">
-								<textarea name="entry.1576031" placeholder="Ca học mong muốn (có thể chọn nhiều ca)" data-constraints="@Required" style="height: 100px"></textarea>
+								<textarea name="entry.1576031" placeholder="Ca học mong muốn (có thể chọn nhiều ca)" data-constraints="@Required" style="height: 100px" id="my_course"></textarea>
 								<span class="empty-message">*Phần này là bắt buộc.</span>
 								<span class="error-message">*The message is too short.</span>
 							</label>
-							<h6 style="color:black">Chúng tôi sẽ liên lạc với bạn qua SĐT để hướng dẫn chi tiết<br/><br/></h6>
+							<input type="hidden" name="entry.2012575728" value="" id="my_course_val"></input>
+							<h6 style="color:#888">Chúng tôi sẽ liên lạc với bạn qua SĐT để hướng dẫn chi tiết<br/><br/></h6>
 							<div class="btn-wr">
 								<!--a class="btn-small btn-skin-2" href="#" data-type="reset">Clear</a-->
 								<a class="btn-small btn-skin-3" href="#" data-type="submit">Đăng ký ngay</a>
@@ -166,7 +184,45 @@ window.location.protocol = "https";</script>
             </div>
         </footer>
     </div>
+	<script>
+		function getParameterByName(name) {
+			url = window.location.href;
+			name = name.replace(/[\[\]]/g, "\\$&");
+			var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+				results = regex.exec(url);
+			if (!results) return null;
+			if (!results[2]) return '';
+			return decodeURIComponent(results[2].replace(/\+/g, " "));
+		}
+		var course = getParameterByName('course');
+		if (course != null && course != "") {
+			document.getElementById("my_course").placeholder = "Lớp học muốn đăng ký thêm (có thể để trống)";
+			$("#my_course").addClass("nuiNotRequire");
+			$("#my_course_show").text("Đăng ký lớp tại "+course);
+			$("#my_course_show").show();
+			$("#my_course_val").val(course);
+		}
+	</script>
     <script src="js/script.js"></script>
+	<script>
+	/*function getParameterByName(name) {
+		url = window.location.href;
+		name = name.replace(/[\[\]]/g, "\\$&");
+		var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+			results = regex.exec(url);
+		if (!results) return null;
+		if (!results[2]) return '';
+		return decodeURIComponent(results[2].replace(/\+/g, " "));
+	}
+	var course = getParameterByName('course');
+	$('#my_course').text(course);
+	$(document).ready(function() {
+		//var course = getParameterByName('course');
+		//if (course != null)
+			$('#my_course').text(course);
+			//document.getElementById("my_course").value = "afaagaga";
+	});*/
+	</script>
 </body>
 
 </html>
